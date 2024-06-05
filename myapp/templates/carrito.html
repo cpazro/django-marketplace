@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,7 +166,7 @@ function validateDate(){
     <section class="h-100 h-custom" style="background-color: #eeeeee;">
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="inicio.html">
-            <img src="Logo/8.png" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
+            <img src="{% static 'logo.png' %}" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
           Nombre de tienda
         </a>
       </nav>
@@ -197,7 +198,7 @@ function validateDate(){
                           <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                               <div>
-                                <img src="imagenes/faldamain.jpeg" 
+                                <img src="{% static 'faldamain.jpeg' %}" 
                                 class="img-fluid rounded-3" alt="Shopping item" width="65" height="65">
 
                               </div>
@@ -224,7 +225,7 @@ function validateDate(){
                           <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                               <div>
-                                <img src="imagenes/westwoodbag.jpeg" 
+                                <img src="{% static 'westwoodbag.jpeg' %}" 
                                 class="img-fluid rounded-3" alt="Shopping item" width="65" height="65">
                               </div>
                               <div class="ms-3">
@@ -250,7 +251,7 @@ function validateDate(){
                           <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                               <div>
-                                <img src="imagenes/dolceandgabanna.jpeg" 
+                                <img src="{% static 'dolceandgabanna.jpeg' %}"
                                 class="img-fluid rounded-3" alt="Shopping item" width="65" height="65">
                               </div>
                               <div class="ms-3">
@@ -276,7 +277,7 @@ function validateDate(){
                           <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                               <div>
-                                <img src="imagenes/faldamisssixty.jpeg" 
+                                <img src="{% static 'faldamisssixty.jpeg' %}" 
                                 class="img-fluid rounded-3" alt="Shopping item" width="65" height="65">
                               </div>
                               <div class="ms-3">
