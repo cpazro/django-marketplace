@@ -3,13 +3,13 @@ from . import views
 from django.contrib import admin
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("", views.inicio, name="home"),
     path("admin/", admin.site.urls),
     path("todos/", views.todos, name="Todos"),
-    path("carrito/", views.carrito, name="Carrito"),
-    path("inicio/", views.inicio, name="Inicio"),
-    path("despliegue-producto/", views.despliegue, name="despliegue-producto"),
-    path("formulario-producto/", views.formulario, name="formulario-producto"),
-    path("login/", views.login, name="login"),
+    path("carrito/", views.carrito, name="carrito"),
+    path("carrito/inicio/", views.inicio, name="inicio"),
+    path("carrito/despliegue-producto/", views.despliegue, name="despliegue-producto"),
+    path("carrito/formulario-producto/", views.formulario, name="formulario-producto"),
+    path('carrito/login', views.login, name='login'),
 ]
 

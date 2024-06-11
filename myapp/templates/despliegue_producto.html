@@ -1,27 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Despliegue de product</title>
+    <title>Despliegue de producto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
 
-    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="Logo/8.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/png" href="{% static 'estrella.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>    
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}">
 <!--
     
 TemplateMo 559 Zay Shop
@@ -40,8 +48,8 @@ https://templatemo.com/tm-559-zay-shop
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand" href="inicio.html">
-                <img src="Logo/8.png" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
+            <a class="navbar-brand" href="{% url 'inicio' %}">
+                <img src="{% static 'estrella.png' %}" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
                 Nombre de tienda
               </a>
 
@@ -54,7 +62,7 @@ https://templatemo.com/tm-559-zay-shop
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
                             <!--<p>Inicio</p>-->
-                            <p><a href="../carrito/inicio.html">Inicio</a></p>
+                            <p><a href="{% url 'inicio' %}">Inicio</a></p>
                         </li>
                         <li class="nav-item">
                             <p>Nosotros</p>
@@ -79,7 +87,7 @@ https://templatemo.com/tm-559-zay-shop
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="carrito.html">
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url 'carrito' %}">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
@@ -123,8 +131,9 @@ https://templatemo.com/tm-559-zay-shop
             <div class="row">
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
-                        <img class="card-img img-fluid" src="imagenes/faldamain.jpeg" alt="Card image cap" id="product-detail">
-                    </div>
+                        {% load static %}
+
+                        <img class="card-img img-fluid" src="{% static 'faldamain.jpeg' %}" alt="Card image cap" id="product-detail">
                     <div class="text col-lg-5 mt-5">
                         <h2>Productos recomendados</h2>
                     </div>
@@ -147,17 +156,17 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/faldamisssixty.jpeg" alt="Product Image 1">
+                                                    <img class="card-img img-fluid" src="{% static 'faldamisssixty.jpeg' %}" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/faldatrippnyc.jpeg" alt="Product Image 2">
+                                                <img class="card-img img-fluid" src="{% static 'faldatrippnyc.jpeg' %}" alt="Product Image 2">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/faldatartan.jpeg" alt="Product Image 3">
+                                                <img class="card-img img-fluid" src="{% static 'faldatartan.jpeg' %}" alt="Product Image 3">
                                             </a>
                                         </div>
                                     </div>
@@ -169,17 +178,17 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/dolceandgabanna.jpeg" alt="Product Image 4">
+                                                <img class="card-img img-fluid" src="{% static 'dolceandgabanna.jpeg' %}" alt="Product Image 4">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/diortop.jpeg" alt="Product Image 5">
+                                                <img class="card-img img-fluid" src="{% static 'diortop.jpeg' %}" alt="Product Image 5">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid si" src="imagenes/faldaburberry.jpeg" alt="Product Image 6">
+                                                <img class="card-img img-fluid si" src="{% static 'faldaburberry.jpeg' %}" alt="Product Image 6">
                                             </a>
                                         </div>
                                     </div>
@@ -191,17 +200,17 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/westwoodbag.jpeg" alt="Product Image 7">
+                                                <img class="card-img img-fluid" src="{% static 'westwoodbag.jpeg' %}" alt="Product Image 7">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/westwoodbag2.jpeg" alt="Product Image 8">
+                                                <img class="card-img img-fluid" src="{% static 'westwoodbag2.jpeg' %}" alt="Product Image 8">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="imagenes/tripnycskirt2.jpeg" alt="Product Image 9">
+                                                <img class="card-img img-fluid" src="{% static 'tripnycskirt2.jpeg' %}" alt="Product Image 9">
                                             </a>
                                         </div>
                                     </div>
@@ -305,7 +314,7 @@ https://templatemo.com/tm-559-zay-shop
 
                                     </div>
                                     <div class="col d-grid">
-                                        <a href="carrito.html" class="btn btn-secondary btn-lg">Comprar</a>
+                                        <a href="{% url 'carrito' %}" class="btn btn-secondary btn-lg">Comprar</a>
                                     </div>
                                 </div>
                             </form>
@@ -353,15 +362,15 @@ https://templatemo.com/tm-559-zay-shop
     
 
     <!-- Start Script -->
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/templatemo.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
     <!-- End Script -->
 
     <!-- Start Slider Script -->
-    <script src="assets/js/slick.min.js"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
     <script>
         $('#carousel-related-product').slick({
             infinite: true,
