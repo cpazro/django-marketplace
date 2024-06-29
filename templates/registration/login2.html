@@ -1,0 +1,20 @@
+{% load static %}
+
+<h1>BIENVENIDO AL LOGIN</h1>
+
+<body>
+
+<h2>ACCESO</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">Ingreso</button>
+
+</form>
+
+</body>
+
