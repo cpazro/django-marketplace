@@ -49,12 +49,12 @@
             <ul class="list-inline">
               <li class="list-inline-item"><a href="{% url 'formulario-producto' %}" class="btn btn-secondary">Vender</a></li>
                 <li class="list-inline-item"><a href="{% url 'login' %}" class="btn btn-light">Login</a></li>
-                <li class="list-inline-item"></li>
+                <li class="list-inline-item">
                 <a href="{% url 'carrito' %}" class="btn btn-secondary">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                </a>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+            <li class="list-inline-item">
+              {{user.first_name}} {{user.last_name}}
             </li>
-            
             </ul>
           </div>
       </nav>

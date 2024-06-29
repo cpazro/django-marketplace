@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+
+{% load static %}
+{% block content %}
 <h1>Todo list</h1>
 <ul>
     {% for todo in todos %}
@@ -11,5 +13,7 @@
     </li>
     {% endfor %}
 </ul>
+{{user.first_name}} {{user.last_name}}
+<a class="dropdown-item" href="{% url 'inicio'%}">Cerrar Sesion</a>
 {% endblock %}
 
