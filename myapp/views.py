@@ -31,6 +31,8 @@ def registro_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             return HttpResponse("Usuario creado")
+            messages.success(request, 'Success')
+
     else:
         form = RegistroUserForm()
 

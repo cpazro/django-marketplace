@@ -88,24 +88,35 @@
                     <h4 class="mt-1 mb-5 pb-1">Nombre de tienda</h4>
                   </div>
 
+                  {% if not user.is_authenticated %}
+                  <p><b>Por favor ingrese a su cuenta</b></p>
+
                   <form method="POST">
+                    
                     {% csrf_token %}
                     {{ form.as_p }}
 
                     <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Continuar</button>
-
-                    <p><b>Por favor ingrese a su cuenta</b></p>
-
+                    {% endif %}
+                    
                     <!-- Add a button to close session -->
-                    <a href="{% url 'logout' %}">
-                      <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Cerrar sesión</button>
-                    </a>
-
-                    <!-- Rest of the code -->
+                    {% if user.is_authenticated %}
+                    <div style="text-align: center;">
+                      <a href="{% url 'logout' %}">
+                        <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Cerrar sesión</button>
+                      </a>
+                    </div>
+                  {% endif %}
 
                   </form>
 
-                  </form>
+                  <br>
+                  
+                  <p><b>No tienes cuenta?</b></p>
+                  <a href="{% url 'registro-user' %}">
+                    <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Registro</button>
+                  </a>
+                  
 
                 </div>
               </div>
