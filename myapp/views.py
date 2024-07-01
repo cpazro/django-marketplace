@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistroUserForm
+from .forms import CustomUserCreationForm
+
 # Create your views here.
 def home(request):
     return render(request, "home.html")
@@ -35,6 +37,7 @@ def registro_user(request):
 
     else:
         form = RegistroUserForm()
+        form = CustomUserCreationForm()
 
     return render(request, 'registro_user.html', {'form': form})
 
