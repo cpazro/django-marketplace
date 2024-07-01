@@ -1,0 +1,15 @@
+{% if form.errors %}
+    <p>Hubo un error con el registro...</p>
+{% endif %}
+
+{% block content %}
+<h1>Registro</h1>
+<form action="{% url 'registro-user' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+
+    {% endblock %}
+    <br>
+    <button type="submit">Registrar</button>
+</form>
