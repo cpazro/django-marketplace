@@ -13,7 +13,9 @@
     </li>
     {% endfor %}
 </ul>
-{{user.first_name}} {{user.last_name}}
+
 <a class="dropdown-item" href="{% url 'inicio'%}">Cerrar Sesion</a>
+<a>{{request.user.get_full_name}}</a>
+
 {% endblock %}
 
