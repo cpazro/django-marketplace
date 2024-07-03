@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from .models import TodoItem
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistroUserForm
@@ -45,6 +45,7 @@ def registro_user(request):
 
     return render(request, 'registro_user.html', {'form': form})
 
+@login_required
 def carrito(request):
     return render(request, "carrito.html")
 
@@ -76,6 +77,7 @@ def dashboard_cliente(request):
     return render(request, "dashboard_cliente.html")
 
 #cami
+@user_passes_test(lambda u: u.is_superuser)
 def lista_clientes(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT id, nombre, genero, fecha_nacimiento, clave, correo, es_miembro FROM myapp_cliente")
@@ -99,6 +101,7 @@ def lista_tarjeta(request):
     context = {'tarjetas': tarjetas}
     return render(request, 'lista_tarjeta.html', context)
 
+@user_passes_test(lambda u: u.is_superuser)
 def lista_tipo_tarjeta(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT id_tipo, descripcion FROM myapp_tipotarjeta")
@@ -108,6 +111,7 @@ def lista_tipo_tarjeta(request):
     return render(request, 'lista_tipo_tarjeta.html', context)
 
 # Vista para añadir Cliente
+@login_required
 def add_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -119,6 +123,7 @@ def add_cliente(request):
     return render(request, 'add_cliente.html', {'form': form})
 
 # Vista para añadir TipoTarjeta
+@login_required
 def add_tipo_tarjeta(request):
     if request.method == 'POST':
         form = TipoTarjetaForm(request.POST)
@@ -130,6 +135,7 @@ def add_tipo_tarjeta(request):
     return render(request, 'add_tipo_tarjeta.html', {'form': form})
 
 # Vista para añadir Tarjeta
+@login_required
 def add_tarjeta(request):
     if request.method == 'POST':
         form = TarjetaForm(request.POST)
@@ -141,6 +147,7 @@ def add_tarjeta(request):
     return render(request, 'add_tarjeta.html', {'form': form})
 
 # Vista para editar Cliente
+@login_required
 def edit_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
     if request.method == 'POST':
@@ -153,6 +160,7 @@ def edit_cliente(request, id):
     return render(request, 'edit_cliente.html', {'form': form})
 
 # Vista para editar TipoTarjeta
+@login_required
 def edit_tipo_tarjeta(request, id_tipo):
     tipo_tarjeta = get_object_or_404(TipoTarjeta, id_tipo=id_tipo)
     if request.method == 'POST':
@@ -166,6 +174,7 @@ def edit_tipo_tarjeta(request, id_tipo):
     return render(request, 'edit_tipo_tarjeta.html', {'form': form})
 
 # Vista para editar Tarjeta
+@login_required
 def edit_tarjeta(request, numero_tarjeta):
     tarjeta = get_object_or_404(Tarjeta, numero_tarjeta=numero_tarjeta)
     if request.method == 'POST':
@@ -178,6 +187,7 @@ def edit_tarjeta(request, numero_tarjeta):
     return render(request, 'edit_tarjeta.html', {'form': form})
 
 # Vista para eliminar Cliente
+@login_required
 def delete_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
     if request.method == 'POST':
@@ -186,6 +196,7 @@ def delete_cliente(request, id):
     return render(request, 'delete_cliente.html', {'cliente': cliente})
 
 # Vista para eliminar TipoTarjeta
+@login_required
 def delete_tipo_tarjeta(request, id_tipo):
     tipo_tarjeta = get_object_or_404(TipoTarjeta, id_tipo=id_tipo)
     if request.method == 'POST':
@@ -194,6 +205,7 @@ def delete_tipo_tarjeta(request, id_tipo):
     return render(request, 'delete_tipo_tarjeta.html', {'tipo_tarjeta': tipo_tarjeta})
 
 # Vista para eliminar Tarjeta
+@login_required
 def delete_tarjeta(request, numero_tarjeta):
     tarjeta = get_object_or_404(Tarjeta, numero_tarjeta=numero_tarjeta)
     if request.method == 'POST':

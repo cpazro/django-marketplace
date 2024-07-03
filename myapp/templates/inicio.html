@@ -37,7 +37,7 @@
               <a class="nav-link" href="{% url 'despliegue-producto' %}">Catalogo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link disabled" href="#">☆</a>
             </li>
           </ul>
           <div class="text-center"></div>
@@ -55,10 +55,11 @@
                 {% if user.is_authenticated %}
                 <li class="list-inline-item"><a href="{% url 'dashboard_cliente' %}" class="btn btn-light">Dashboard</a></li>
                 <li class="list-inline-item"><a href="{% url 'login' %}" class="btn btn-light">Cerrar Sesion</a></li>
-                {% endif %}
+                
                 <li class="list-inline-item">
                 <a href="{% url 'carrito' %}" class="btn btn-secondary">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    {% endif %}
             </ul>
           </div>
 

@@ -32,10 +32,11 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['nombre', 'genero', 'fecha_nacimiento', 'clave', 'correo', 'es_miembro']
+
         widgets = {
             'fecha_nacimiento': forms.DateInput(attrs={'type': 'date'}),
             'correo': forms.EmailInput(attrs={'placeholder': 'Correo Electrónico'}),
-
+            'clave': forms.PasswordInput(),
         }
 
 class TipoTarjetaForm(forms.ModelForm):
