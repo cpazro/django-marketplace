@@ -56,6 +56,9 @@ def inicio2(request):
 def login(request, user):
     return render(request, "login.html")
 
+def login2(request, user):
+    return render(request, "login2.html")
+
 def despliegue(request):
     return render(request, "despliegue_producto.html")
 
