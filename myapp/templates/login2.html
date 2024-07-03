@@ -17,9 +17,7 @@
       background-repeat: no-repeat;
     }
   </style>
-<!-- Commented out the script code -->
-<!--
-<script>
+ <script>
   document.addEventListener('DOMContentLoaded', function() {
     var payButton = document.getElementById('btnLogin');
     payButton.addEventListener('click', function() {
@@ -61,7 +59,6 @@
     });
   });
 </script>
--->
 
 </head>
 <body>
@@ -69,7 +66,7 @@
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'inicio' %}">
 
-      <img src="{% static 'estrella.png' %}" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
+      <img src="{% static 'logo.png' %}" width="30" height="30" class="d-inline-block align-top mx-3" alt="Logo tienda">
       Nombre de tienda
     </a>
   </nav>
@@ -83,46 +80,43 @@
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    <img src="{% static 'estrella.png' %}" 
+                    <img src="{% static 'logo.png' %}" 
                     class="img-fluid rounded-3" alt="Logo" width="80" height="80">
                     <h4 class="mt-1 mb-5 pb-1">Nombre de tienda</h4>
                   </div>
 
-                  {% if not user.is_authenticated %}
-                  <p><b>Por favor ingrese a su cuenta</b></p>
-
-                  <form method="POST">
-                    
-                    {% csrf_token %}
-                    {{ form.as_p }}
-
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Continuar</button>
-
-                    <br>
-                    <p><b>No tienes cuenta?</b></p>
-                    <a href="{% url 'registro-user' %}">
-                      <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Registro</button>
-                    </a>
-                    
-                    {% endif %}
-                    
-                    <!-- Add a button to close session -->
-                    {% if user.is_authenticated %}
-                    <div style="text-align: center;">
-                      <a href="{% url 'logout' %}">
-                        <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Cerrar sesión</button>
-                      </a>
-
-                      
-                  
-
+                  <form>
+                    <p><b>Por favor ingrese a su cuenta</b></p>
+                  <!--INCLUIR VALIDACION-->
+                    <div class="form-outline mb-4">
+                      <input type="email" id="inputEmail" class="form-control"
+                        placeholder="Ej. correo@servicio.cl" />
+                      <label class="form-label" for="form2Example11">Correo</label>
                     </div>
-                  {% endif %}
 
+                    <div class="form-outline mb-4">
+                      <input type="password" id="inputClave" class="form-control" />
+                      <label class="form-label" for="form2Example22">Contraseña</label>
+                      <p style="font-size: x-small;">La contraseña debe contener 12 caracteres, mayúsculas, minúsculas, números y caracteres especiales</p>
+                    </div>
+
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="mostrarContraseñaCheckbox">
+                      <label class="form-check-label" for="mostrarContraseñaCheckbox">Mostrar contraseña</label>
+                    </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" id="btnLogin" type="button">Continuar</button>
+                      <br>
+                      <a class="text-muted" href="{% url 'inicio' %}">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2"><a href="{% url 'inicio' %}">¿No tienes una cuenta?</a></p>
+                      <a href="{% url 'inicio' %}">
+                        <button type="button" class="btn btn-outline-danger">Regístrate</button>
+                      </a>
+                    </div>                    
                   </form>
-
-
-                  
 
                 </div>
               </div>

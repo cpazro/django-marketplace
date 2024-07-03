@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 LOGIN_REDIRECT_URL = 'inicio'
-LOGOUT_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'todos'
 
 WSGI_APPLICATION = 'demomarketplace.wsgi.application'
 
