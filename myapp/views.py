@@ -9,6 +9,7 @@ from .forms import ClienteForm, TipoTarjetaForm, TarjetaForm
 from django.db import connection
 from .models import TodoItem, Cliente, TipoTarjeta, Tarjeta
 
+
 # Create your views here.
 def home(request):
     return render(request, "home.html")
