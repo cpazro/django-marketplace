@@ -109,9 +109,14 @@
                     <!-- Add a button to close session -->
                     {% if user.is_authenticated %}
                     <div style="text-align: center;">
-                      <a href="{% url 'logout' %}">
-                        <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3" type="button">Cerrar sesión</button>
-                      </a>
+                      <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" >
+                            Cerrar Sesion
+                        </button>
+                    </form>
+
+                      
 
                       
                   

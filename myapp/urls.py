@@ -13,7 +13,7 @@ urlpatterns = [
     path("carrito/formulario-producto/", views.formulario, name="formulario-producto"),
     path("carrito/registro-user/", views.registro_user, name="registro-user"),
     path('carrito/login', views.login, name='login'),
-    path('carrito/login2', views.login2, name='login2'),
+    path("carrito/dashboard_cliente/", views.dashboard_cliente, name="dashboard_cliente"),
     
     path('carrito/clientes/', views.lista_clientes, name='lista_clientes'),
     path('carrito/tarjetas/', views.lista_tarjeta, name='lista_tarjeta'),

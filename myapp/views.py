@@ -65,8 +65,14 @@ def despliegue(request):
 def formulario(request):
     return render(request, "formulario_producto.html")
 
-def login2(request):
-    return render(request, "login2.html")
+@login_required
+def dashboard_cliente(request):
+
+    request.session ["usuario"] = "cpazro"
+    usuario=request.session.get("usuario")
+    context = {"usuario": usuario}
+
+    return render(request, "dashboard_cliente.html")
 
 #cami
 def lista_clientes(request):
