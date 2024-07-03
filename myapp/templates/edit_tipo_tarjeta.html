@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Tipo de Tarjeta</title>
+</head>
+<body>
+    <h1>Editar Tipo de Tarjeta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_tipo_tarjeta' %}">Volver a la lista</a>
+</body>
+</html>

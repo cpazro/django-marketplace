@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Añadir Tarjeta</title>
+</head>
+<body>
+    <h1>Añadir Tarjeta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_tarjeta' %}" class="btn btn-secondary mt-2">Volver a la lista de Tarjetas</a>
+</body>
+</html>

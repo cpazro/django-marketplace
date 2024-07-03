@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tipos de Tarjeta</title>
+</head>
+<body>
+    <h1>Lista de Tipos de Tarjeta</h1>
+    <ul>
+        {% for tipo_tarjeta in tipos_tarjeta %}
+            <li>
+                {{ tipo_tarjeta.descripcion }}
+                <a href="{% url 'edit_tipo_tarjeta' tipo_tarjeta.id_tipo %}">Editar</a>
+                <form action="{% url 'delete_tipo_tarjeta' tipo_tarjeta.id_tipo %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_tipo_tarjeta' %}">Añadir Tipo de Tarjeta</a>
+</body>
+</html>

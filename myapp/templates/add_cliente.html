@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Añadir Cliente</title>
+</head>
+<body>
+    <h1>Añadir Cliente</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+        <a href="{% url 'lista_clientes' %}" class="btn btn-secondary mt-2">Volver a la lista de Clientes</a>
+    </div>
+</body>
+</html>

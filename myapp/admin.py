@@ -7,12 +7,11 @@ class ClienteAdmin(admin.ModelAdmin):
 
 class TipoTarjetaAdmin(admin.ModelAdmin):
     list_display = ('id_tipo', 'descripcion')
-    search_fields = ('descripcion',)
-    list_filter = ('descripcion',)  # Optional: Add filters for descriptions if there are many types
+    search_fields = ('id_tipo', 'descripcion')
 
 class TarjetaAdmin(admin.ModelAdmin):
-    list_display = ('numero_tarjeta', 'nombre', 'tipo', 'cliente')
-    search_fields = ('numero_tarjeta', 'nombre')
+    list_display = ('numero_tarjeta', 'tipo', 'cliente')
+    search_fields = ('numero_tarjeta', 'cliente')
     list_filter = ('tipo',)
 
 admin.site.register(TodoItem)

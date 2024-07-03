@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Tipo de Tarjeta</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Agregar Tipo de Tarjeta</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a href="{% url 'lista_tipo_tarjeta' %}" class="btn btn-secondary mt-2">Volver a la lista de Tipos de Tarjeta</a>
+    </div>
+</body>
+</html>
